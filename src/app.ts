@@ -24,9 +24,28 @@ app.get("/status", (req, res) => {
     });
 });
 
-app.use((req: Request, res: Response) => {
-    
-    
+app.get("/articles", (req, res) =>
+{
+    var fs = require('fs');
+    var contents = fs.readFileSync('articles.json', 'utf8');
+    console.log(contents);
+
+    //if () {
+    //    res.status(400).send({
+    //        "status": "Missing"
+    //    });
+    //} else {
+        res.status(200).send({
+            "title": "The title",
+            "subtitle": "The subtitle",
+            "body": "The body of the article",
+            "author": "The author's full name"
+        });
+    //}
+
+});
+
+app.use((req: Request, res: Response) => {    
     res.status(500).send({
         status: 500,
         message: "Not Implemented"
