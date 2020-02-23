@@ -35,12 +35,11 @@ app.get("/articles", (req, res) =>
     //        "status": "Missing"
     //    });
     //} else {
-        res.status(200).send({
-            "title": "The title",
-            "subtitle": "The subtitle",
-            "body": "The body of the article",
-            "author": "The author's full name"
+    res.json(200).send({
+        contents
         });
+    //res.end(JSON.stringify(contents));
+
     //}
 
 });
