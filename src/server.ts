@@ -19,4 +19,25 @@ const server = app.listen(port, () => {
     console.log(`Server started at http://localhost:${port}`);
 });
 
+
+
+
+export interface IBook extends mongoose.Document {
+    title: string;
+    subtitle: string;
+    body: string;
+    author: string;
+}
+
+export const BookSchema = new mongoose.Schema({
+    title: { type: String, required: true },
+    subtitle:{ type: String, required: true },
+    body: { type: String, required: true },
+    author: { type: String, required: true },
+});
+
+const Article = mongoose.model<IBook>("Article", BookSchema);
+
+export default Article;
+
 export { server };
